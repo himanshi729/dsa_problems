@@ -1,4 +1,5 @@
 #include<iostream>
+
 using namespace std;
 
 int friendsPairing(int n){
@@ -12,6 +13,6 @@ int friendsPairing(int n){
 }
 
 int main(){
-    cout<<"Answer: "<<friendsPairing(5)<<endl;
+    cout<<"Answer: "<<friendsPairing(4)<<endl;
     return 0;
 }
