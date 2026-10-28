@@ -10,6 +10,8 @@ void printSubsets(string str, string subset){
     }
 
     char ch = str[0];
+    // cout<<"character value "<<ch<<endl;
+    // cout<<"recurssion call for f "<<str<<" , "<<subset+ch<<endl;
 
     //for YES choice
     printSubsets(str.substr(1, str.size()-1), subset + ch);
@@ -17,13 +19,10 @@ void printSubsets(string str, string subset){
     //for NO choice
     printSubsets(str.substr(1, str.size()-1), subset);
 }
-
 int main(){
     string str= "abc";
     string subset = "";
 
     printSubsets(str, subset);
-
     return 0;
-
 }
