@@ -10,13 +10,18 @@ int fractionalKnapsack(vector<int>val, vector<int> wt, int W){
     int n = val.size();
     vector<pair<double, int>> ratio(n, make_pair(0.0, 0));
 
+    //calculate ratio
     for(int i=0; i<n; i++){
         double r =val[i]/(double)wt[i];
         ratio[i] = make_pair(r, i);
     }
 
+    //sort ratio in descending order
     sort(ratio.begin(), ratio.end(), compare);
+
     int ans = 0;
+
+    //step-3 to solve knapsack
     for(int i =0; i<n; i++){
         int idx = ratio[i].second;
         if(wt[idx] <= W){
