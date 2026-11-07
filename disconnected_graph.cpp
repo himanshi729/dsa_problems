@@ -52,6 +52,40 @@ void dfs(){
     dfsHelper(0, vis);
     cout<<endl;
 }
+
+// ---------- BFS - disconnected graph --------------------
+
+void bfsHelper(int st, vector<bool> &vis){
+    queue<int> q;
+    q.push(st);
+    vis[st] = true;
+
+    while(q.size()>0){
+        int curr = q.front();//current vertex
+        q.pop();
+
+        cout<<curr<<" ";
+
+        list<int> neighbours = l[curr];
+        for(int V:neighbours){
+            if(!vis[V]){
+                vis[V] = true;
+                q.push(V);
+            }
+        }
+    }
+    cout<<endl;
+}
+void bfs(){
+    vector<bool> vis(V, false);
+    for(int i=0; i<V; i++){
+        if(!vis[i]){
+            bfsHelper(i, vis);
+            cout<<endl;
+        }
+    }
+}
+
 };
 
 int main(){
@@ -74,7 +108,7 @@ int main(){
     
 
 
-    graph.dfs();
+    graph.bfs();
 
     return 0;
   
