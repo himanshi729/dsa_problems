@@ -49,8 +49,6 @@ void dfs(){
             cout<<endl;
         }
     }
-    dfsHelper(0, vis);
-    cout<<endl;
 }
 
 // ---------- BFS - disconnected graph --------------------
