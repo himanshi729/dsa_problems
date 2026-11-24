@@ -51,7 +51,7 @@ int main(){
 
     graph[4].push_back(Edge(1, -1));
     
-    bellmenFord(4, graph, V);
+    bellmenFord(0, graph, V);
 
     return 0;
 }
