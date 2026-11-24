@@ -12,8 +12,8 @@ class DisjointSet{
         DisjointSet(int n){
             this->n = n;
             for(int i=0; i<n; i++){
-                par[i] = i;
-                rank[i] = 0;
+                par.push_back(i);
+                rank.push_back(0);
             }
         }
 
@@ -24,11 +24,11 @@ class DisjointSet{
             return find(par[x]);
         }
 
-        int UnionByRank(int a, int b){
+        void UnionByRank(int a, int b){
             int parA = find(a);
             int parB = find(b);
 
-            if(rank[parA] > rank[parB]){
+            if(rank[parA] == rank[parB]){
                 par[parB] = parA;
                 rank[parA]++;
             }
@@ -39,6 +39,11 @@ class DisjointSet{
                 par[parA] = parB;
             }
         }
+    void getInfo(){
+        for (int i=0; i<n; i++){
+            cout<< i <<":"<<par[i]<<" , "<<rank[i]<<endl;
+        }
+    }
 };
 
 int main(){
@@ -47,4 +52,10 @@ int main(){
     cout<<dj.find(2)<<endl;
     dj.UnionByRank(1, 3);
     dj.UnionByRank(2, 5);
+    dj.UnionByRank(0, 3);
+    cout<<dj.find(2)<<endl;
+    dj.UnionByRank(0,4);
+
+    dj.getInfo();
+    return 0;
 }
